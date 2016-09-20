@@ -8,9 +8,14 @@ int main(int argc,char *argv[]){
   int tempFD = open("/dev/i2c-2", O_RDONLY);
   char ledBuf[1] = "0";
   char tempBuf[2];
+  int maxTemp = 29;
   int dec;
   ioctl(tempFD, 0x0703, 0x48);
   write(ledFD, ledBuf, 1);
+
+  if(argc == 2){
+    maxTemp = (int) argv[1];
+  }
 
 
   while(1){
@@ -21,7 +26,7 @@ int main(int argc,char *argv[]){
     } else {
       dec = 0;
     }
-    if(tempBuf[0] > 29){
+    if(tempBuf[0] > maxTemp){
       ledBuf[0] = '1';
       printf("Reactor is melting!\n");
     } else {
