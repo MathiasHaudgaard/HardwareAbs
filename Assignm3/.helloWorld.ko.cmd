@@ -1,0 +1,1 @@
+cmd_/home/stud/hardwareAbs/Assignm3/helloWorld.ko := arm-poky-linux-gnueabi-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/stud/hardwareAbs/Assignm3/helloWorld.ko /home/stud/hardwareAbs/Assignm3/helloWorld.o /home/stud/hardwareAbs/Assignm3/helloWorld.mod.o
